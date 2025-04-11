@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Update Donor</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ca7ad6, #7bdb63, #f0e76c, #f573db, #ff7593);
+      background-size: 300% 300%;
+      animation: gradientMove 10s ease infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .form-container {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      width: 350px;
+      box-sizing: border-box;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 5px;
+      margin-top: 10px;
+      color: #444;
+    }
+
+    input {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px;
+      background-color: #ff7593;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e05578;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Update Donor</h2>
+    <form id="updateForm" method="post" action="/donation/donors">
+      <input type="hidden" name="action" value="update" />
+      <input type="hidden" name="donId" id="donId" />
+
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" name="firstName" placeholder="First name" required />
+
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" name="lastName" placeholder="Last name" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Email" required />
+
+      <label for="mobileNumber">Mobile:</label>
+      <input type="text" id="mobileNumber" name="mobileNumber" placeholder="Mobile" required />
+
+      <label for="event">Event:</label>
+      <input type="text" id="event" name="event" placeholder="Event" required />
+
+      <label for="amount">Amount:</label>
+      <input type="number" id="amount" name="amount" placeholder="Amount" required />
+
+      <button type="submit">Update</button>
+    </form>
+  </div>
+
+  <script>
+    const baseUrl = window.location.pathname.includes('donation') ? '/donation' : '';
+    const donorsUrl = `${baseUrl}/donors`;
+    const params = new URLSearchParams(window.location.search);
+    const donId = params.get("id");
+
+    // Populate form values
+    fetch(`${donorsUrl}/edit/${donId}`)
+      .then(res => res.json())
+      .then(donor => {
+        document.getElementById("donId").value = donor.donId;
+        document.getElementById("firstName").value = donor.firstName;
+        document.getElementById("lastName").value = donor.lastName;
+        document.getElementById("email").value = donor.email;
+        document.getElementById("mobileNumber").value = donor.mobileNumber;
+        document.getElementById("event").value = donor.event;
+        document.getElementById("amount").value = donor.amount;
+      })
+      .catch(err => {
+        alert("Error loading donor: " + err.message);
+      });
+  </script>
+</body>
+</html>

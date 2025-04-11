@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Register Donor</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ca7ad6, #7bdb63, #f0e76c, #f573db, #ff7593);
+      background-size: 300% 300%;
+      animation: gradientMove 10s ease infinite;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      width: 100%;
+      max-width: 500px;
+      box-sizing: border-box;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 24px;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      color: #555;
+      font-weight: 600;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"] {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+      font-size: 15px;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      background-color: #7bdb63;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #5cb74a;
+    }
+
+    #message {
+      text-align: center;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Register Donor</h2>
+    <form id="registerForm">
+      <input type="hidden" name="action" value="register" />
+
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" name="firstName" placeholder="First name" required />
+
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" name="lastName" placeholder="Last name" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Email" required />
+
+      <label for="mobileNumber">Mobile:</label>
+      <input type="text" id="mobileNumber" name="mobileNumber" placeholder="Mobile" required />
+
+      <label for="event">Event:</label>
+      <input type="text" id="event" name="event" placeholder="Event" required />
+
+      <label for="amount">Amount:</label>
+      <input type="number" id="amount" name="amount" placeholder="Amount" required />
+
+      <input type="submit" value="Register Donor" />
+      <p id="message"></p>
+    </form>
+  </div>
+
+  <script>
+    const baseUrl = window.location.pathname.includes('donation') ? '/donation' : '';
+    const donorsUrl = `${baseUrl}/donors`;
+
+    document.getElementById("registerForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+      fetch(donorsUrl, {
+        method: "POST",
+        body: new URLSearchParams(formData),
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        }
+      })
+      .then(res => res.json())
+      .then(data => {
+        const msg = document.getElementById("message");
+        if (data.error) {
+          msg.style.color = "red";
+          msg.textContent = data.error;
+        } else {
+          msg.style.color = "green";
+          msg.textContent = data.message;
+          this.reset();
+          setTimeout(() => window.location.href = "displayDon.html", 1200);
+        }
+      })
+      .catch(err => {
+        document.getElementById("message").textContent = "Error: " + err.message;
+      });
+    });
+  </script>
+</body>
+</html>
