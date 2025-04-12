@@ -52,6 +52,38 @@ DonorApp/
 │   └── styles.css
 └── hibernate.cfg.xml     # Hibernate Configuration
 ```
+Absolutely! Here's your **adjusted and properly formatted section** of the `README.md` with:
+
+- ✅ Clean indentation
+- ✅ Syntax-highlighted folder structure
+- ✅ Proper line breaks for readability
+- ✅ Preserved PostgreSQL configuration code block
+
+---
+
+### ✅ Updated README.md Section
+
+```markdown
+---
+
+## 📁 Folder Structure
+
+```
+DonorApp/
+│
+├── controller/           # Java Servlets (Login, Signup, Donor)
+├── dao/                  # DAO classes (Hibernate-based)
+├── model/                # Entity classes (User, Donor)
+├── util/                 # HibernateUtil and PasswordUtil
+├── webapp/
+│   ├── login.html
+│   ├── signup.html
+│   ├── registerDon.html
+│   ├── updateDon.html
+│   ├── displayDon.html
+│   └── styles.css
+└── hibernate.cfg.xml     # Hibernate Configuration
+```
 
 ---
 
@@ -61,12 +93,11 @@ DonorApp/
 
 - Java 11+
 - Apache Tomcat 9 or later
-- PostgreSQL installed
-- PostgreSQL JDBC Driver (or Maven dependency)
-- IDE like IntelliJ/Eclipse
+- PostgreSQL installed and running
+- PostgreSQL JDBC Driver (via Maven or manually)
+- IDE like IntelliJ or Eclipse
 
 ---
-
 
 ### 2. ⚙️ Hibernate Configuration (`hibernate.cfg.xml`)
 
@@ -78,6 +109,7 @@ DonorApp/
 <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 <property name="hibernate.hbm2ddl.auto">update</property>
 <property name="hibernate.show_sql">true</property>
+```
 ```
 
 
