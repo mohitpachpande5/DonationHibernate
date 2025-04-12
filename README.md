@@ -1,8 +1,7 @@
-Awesome! Here's the **updated `README.md`** tailored specifically for your project **using PostgreSQL** instead of MySQL:
 
 ---
 
-### ✅ `README.md` — Donor Management System (PostgreSQL Edition)
+### ✅ Final `README.md` — Donor Management System (PostgreSQL Edition)
 
 ```markdown
 # 🎁 Donor Management System (Full Stack Java Web Application)
@@ -43,7 +42,7 @@ DonorApp/
 ├── dao/                  # DAO classes (Hibernate-based)
 ├── model/                # Entity classes (User, Donor)
 ├── util/                 # HibernateUtil and PasswordUtil
-├── webapp/
+├── webapp/               # Frontend files
 │   ├── login.html
 │   ├── signup.html
 │   ├── registerDon.html
@@ -52,54 +51,26 @@ DonorApp/
 │   └── styles.css
 └── hibernate.cfg.xml     # Hibernate Configuration
 ```
-Absolutely! Here's your **adjusted and properly formatted section** of the `README.md` with:
 
-- ✅ Clean indentation
-- ✅ Syntax-highlighted folder structure
-- ✅ Proper line breaks for readability
-- ✅ Preserved PostgreSQL configuration code block
-
----
-
-### ✅ Updated README.md Section
-
-```markdown
----
-
-## 📁 Folder Structure
-
-```
-DonorApp/
-│
-├── controller/           # Java Servlets (Login, Signup, Donor)
-├── dao/                  # DAO classes (Hibernate-based)
-├── model/                # Entity classes (User, Donor)
-├── util/                 # HibernateUtil and PasswordUtil
-├── webapp/
-│   ├── login.html
-│   ├── signup.html
-│   ├── registerDon.html
-│   ├── updateDon.html
-│   ├── displayDon.html
-│   └── styles.css
-└── hibernate.cfg.xml     # Hibernate Configuration
-```
-```
 ---
 
 ## 🔧 Setup Instructions
 
 ### 1. 📦 Prerequisites
 
+Ensure the following are installed and set up:
+
 - Java 11+
 - Apache Tomcat 9 or later
-- PostgreSQL installed and running
-- PostgreSQL JDBC Driver (via Maven or manually)
+- PostgreSQL (running locally)
+- PostgreSQL JDBC Driver (via Maven or manual JAR)
 - IDE like IntelliJ or Eclipse
 
 ---
 
 ### 2. ⚙️ Hibernate Configuration (`hibernate.cfg.xml`)
+
+Update with your PostgreSQL credentials:
 
 ```xml
 <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
@@ -110,54 +81,55 @@ DonorApp/
 <property name="hibernate.hbm2ddl.auto">update</property>
 <property name="hibernate.show_sql">true</property>
 ```
-```
 
+---
 
 ### 3. ▶️ Running the App
 
-1. Start PostgreSQL server.
-2. Deploy the project to Apache Tomcat.
-3. Visit: `http://localhost:8080/donation/`
+1. Start PostgreSQL server and ensure the `donorsystem` database exists.
+2. Deploy the app on Apache Tomcat.
+3. Open in browser: `http://localhost:8080/donation/`
 
 ---
 
 ## 🔐 Security
 
-- Passwords are securely hashed using **BCrypt**
-- User sessions stored with **HttpSession**
-- Donor routes restricted to authenticated users only
+- Passwords are hashed using **BCrypt**
+- Login sessions are handled with `HttpSession`
+- Donor pages are protected behind login
 
 ---
 
-## 📸 UI Pages
+## 📸 UI Preview
 
-- ✅ Login / Signup pages
--![image](https://github.com/user-attachments/assets/cf1943aa-ab4a-46eb-a8d0-a5a01d5fd4f2)
+### ✅ Login / Signup
+![Login/Signup](https://github.com/user-attachments/assets/cf1943aa-ab4a-46eb-a8d0-a5a01d5fd4f2)
 
-- ![image](https://github.com/user-attachments/assets/8eb82ed9-881d-4b45-9637-024853391903)
+![Signup Form](https://github.com/user-attachments/assets/8eb82ed9-881d-4b45-9637-024853391903)
 
-- ✅ Register donor
-- ![image](https://github.com/user-attachments/assets/66d9ae50-9de1-45a0-9a66-3169dafc79b7)
+### ✅ Register Donor
+![Register Donor](https://github.com/user-attachments/assets/66d9ae50-9de1-45a0-9a66-3169dafc79b7)
 
-- ✅ Donor list (with edit/delete)
-- ![image](https://github.com/user-attachments/assets/1a54338f-fe99-45b9-a83e-ff18661d2e2c)
+### ✅ Donor List with Edit/Delete
+![Donor List](https://github.com/user-attachments/assets/1a54338f-fe99-45b9-a83e-ff18661d2e2c)
 
-- ✅ Update donor details (pre-filled)
-- ![image](https://github.com/user-attachments/assets/e4320eff-4405-45c7-bd52-c4f394a6fdf6)
-
+### ✅ Update Donor Details
+![Update Donor](https://github.com/user-attachments/assets/e4320eff-4405-45c7-bd52-c4f394a6fdf6)
 
 ---
 
 ## 🙌 Author
 
 **Mohit Vikas Pachpande**  
-📬 [LinkedIn](https://linkedin.com) | 💻 Java | Hibernate | PostgreSQL | Full Stack
+💻 Java | Hibernate | PostgreSQL | Full Stack Developer  
+🔗 [LinkedIn](https://linkedin.com) *(add your profile URL here)*
 
 ---
 
 ## 📃 License
 
-This project is open source and free to use under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](LICENSE). Feel free to use and modify it for learning or personal projects.
 ```
 
 ---
+
