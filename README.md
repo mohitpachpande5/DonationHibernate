@@ -100,7 +100,7 @@ DonorApp/
 ## 📸 UI Pages
 
 - ✅ Login / Signup pages
--![image](https://github.com/user-attachments/assets/f737741f-4a6e-452b-aa8a-224ee7bd2fdc)
+-![image](https://github.com/user-attachments/assets/cf1943aa-ab4a-46eb-a8d0-a5a01d5fd4f2)
 
 - ![image](https://github.com/user-attachments/assets/8eb82ed9-881d-4b45-9637-024853391903)
 
