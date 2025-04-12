@@ -105,7 +105,7 @@ DonorApp/
 - ![image](https://github.com/user-attachments/assets/8eb82ed9-881d-4b45-9637-024853391903)
 
 - ✅ Register donor
-- ![image](https://github.com/user-attachments/assets/3401e7fc-dc55-40c3-bea5-c6e5bb0dabf2)
+- ![image](https://github.com/user-attachments/assets/66d9ae50-9de1-45a0-9a66-3169dafc79b7)
 
 - ✅ Donor list (with edit/delete)
 - ![image](https://github.com/user-attachments/assets/1a54338f-fe99-45b9-a83e-ff18661d2e2c)
