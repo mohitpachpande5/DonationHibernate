@@ -1,5 +1,3 @@
-Certainly! Here's the updated `README.md` for your Donor Management System project, tailored for PostgreSQL and formatted for clarity:
-
 ---
 
 # 🎁 Donor Management System (Full Stack Java Web Application)
@@ -126,5 +124,3 @@ Replace `your_pg_user` and `your_pg_password` with your actual PostgreSQL creden
 This project is open source and available under the [MIT License](LICENSE).
 
 ---
-
-Feel free to integrate this updated `README.md` into your project. Let me know if you need further assistance! 
